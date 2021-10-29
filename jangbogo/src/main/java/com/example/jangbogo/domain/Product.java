@@ -9,8 +9,9 @@ import javax.persistence.Id;
 import lombok.*;
 
 @Entity
-@Getter
-@Setter
+@Data
+@AllArgsConstructor 
+@NoArgsConstructor
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,5 +19,5 @@ public class Product {
 
     private String name;
 
-    private Category category;
+    //private Category category;
 }

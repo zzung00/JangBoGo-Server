@@ -8,9 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
+@AllArgsConstructor 
+@NoArgsConstructor
 public class Market {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,7 +21,15 @@ public class Market {
 
     private String name;
 
+    private double lat;
+
+    private double lng;
+
+    private String operHour;
+
+    private String tel;
+
     @ManyToMany
-    @JoinTable(name = "market_product")
-    private ArrayList<Stock> stocks = new ArrayList<>();
+    @JoinTable(name = "market_stock")
+    private List<Stock> stocks = new ArrayList<>();
 }
