@@ -37,4 +37,9 @@ public class Market {
 
     private String tel;
 
+    private String address;
+
+    @OneToMany(mappedBy = "market", cascade = CascadeType.ALL)
+    private List<Stock> stocks = new ArrayList<>();
+
 }

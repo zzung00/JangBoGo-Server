@@ -1,7 +1,5 @@
 package com.example.jangbogo.repository;
 
-import java.util.List;
-
 import com.example.jangbogo.domain.Market;
 import com.example.jangbogo.dto.MarketResponse;
 
