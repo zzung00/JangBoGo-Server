@@ -7,16 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MarketResponse {
+public class OrderItemDTO {
     private Integer id;
-
-    private String name;
-
-    private double lat;
-
-    private double lng;
-
-    private String operHour;
-
-    private String tel;
+    private int count;
+    private int price;
+    private ProductDTO product;
 }

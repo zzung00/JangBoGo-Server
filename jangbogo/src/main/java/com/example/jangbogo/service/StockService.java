@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.example.jangbogo.domain.Stock;
-import com.example.jangbogo.dto.StockResponse;
+import com.example.jangbogo.dto.StockDTO;
 import com.example.jangbogo.repository.StockRepository;
 
 import org.modelmapper.ModelMapper;
@@ -19,10 +19,10 @@ public class StockService {
     @Autowired
     private ModelMapper modelMapper;
 
-    public List<StockResponse> loadAllStockByMaketId(Integer marketId) {
-        List<StockResponse> response;
+    public List<StockDTO> loadAllStockByMaketId(Integer marketId) {
+        List<StockDTO> response;
         List<Stock> stocks = stockRepository.findByMarketId(marketId);
-        response = stocks.stream().map(s -> modelMapper.map(s, StockResponse.class)).collect(Collectors.toList());
+        response = stocks.stream().map(s -> modelMapper.map(s, StockDTO.class)).collect(Collectors.toList());
         return response;
     }
 

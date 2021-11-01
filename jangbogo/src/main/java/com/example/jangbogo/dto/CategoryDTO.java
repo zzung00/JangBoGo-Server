@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MarketRequest {
-    private double lat;
-
-    private double lng;
+public class CategoryDTO {
+    private Integer id;
+    private String name;
 }

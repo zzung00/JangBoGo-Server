@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserSigninRequest {
-    private String username;
-
-    private String password;
+public class CartItemDTO {
+    private Integer id;
+    private int count;
+    private int price;
+    private ProductDTO product;
 }

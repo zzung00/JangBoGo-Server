@@ -1,7 +1,6 @@
 package com.example.jangbogo.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,33 +10,25 @@ import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
-@Entity
 @Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@RequiredArgsConstructor
-public class Stock {
+public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NonNull
-    private int price;
-
-    @NonNull
-    private int count;
-
     @ManyToOne
-    @JoinColumn(name = "market_id")
-    @NonNull
-    private Market market;
+    @JoinColumn(name = "order_id")
+    private Orders orders;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
-    @NonNull
     private Product product;
 
+    private int count;
+
+    private int price;
 }

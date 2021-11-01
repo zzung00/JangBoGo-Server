@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.example.jangbogo.domain.Market;
 import com.example.jangbogo.domain.Stock;
-import com.example.jangbogo.dto.StockRequest;
-import com.example.jangbogo.dto.StockResponse;
+import com.example.jangbogo.dto.MarketDTO;
+import com.example.jangbogo.dto.StockDTO;
 import com.example.jangbogo.service.MarketService;
 import com.example.jangbogo.service.StockService;
 
@@ -26,12 +26,13 @@ public class MarketController {
     private StockService stockService;
 
     @RequestMapping(value = "/all", method = RequestMethod.GET)
-    public @ResponseBody List<Market> getAllMarket() {
+    public @ResponseBody List<MarketDTO> getAllMarket() {
         return marketService.loadAllMarket();
     }
 
     @RequestMapping(value = "/stocks", method = RequestMethod.GET)
-    public @ResponseBody List<StockResponse> getAllStocks(StockRequest request) {
-        return stockService.loadAllStockByMaketId(request.getMarketId());
+    public @ResponseBody List<StockDTO> getAllStocks(StockDTO request) {
+        return stockService.loadAllStockByMaketId(request.getProduct().getId());
     }
+
 }

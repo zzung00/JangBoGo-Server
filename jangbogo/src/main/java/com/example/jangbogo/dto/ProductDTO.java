@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StockRequest {
-    private Integer marketId;
+public class ProductDTO {
+    private Integer id;
+    private String name;
+    private CategoryDTO category;
 }
