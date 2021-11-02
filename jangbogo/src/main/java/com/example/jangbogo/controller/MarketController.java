@@ -22,17 +22,9 @@ public class MarketController {
     @Autowired
     private MarketService marketService;
 
-    @Autowired
-    private StockService stockService;
-
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public @ResponseBody List<MarketDTO> getAllMarket() {
         return marketService.loadAllMarket();
-    }
-
-    @RequestMapping(value = "/stocks", method = RequestMethod.GET)
-    public @ResponseBody List<StockDTO> getAllStocks(StockDTO request) {
-        return stockService.loadAllStockByMaketId(request.getProduct().getId());
     }
 
 }
