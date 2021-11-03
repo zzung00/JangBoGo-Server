@@ -2,9 +2,11 @@ package com.example.jangbogo;
 
 import javax.annotation.PostConstruct;
 
+import com.example.jangbogo.domain.Category;
 import com.example.jangbogo.domain.Market;
 import com.example.jangbogo.domain.Product;
 import com.example.jangbogo.domain.Stock;
+import com.example.jangbogo.service.CategoryService;
 import com.example.jangbogo.service.MarketService;
 import com.example.jangbogo.service.ProductService;
 import com.example.jangbogo.service.StockService;
@@ -28,17 +30,23 @@ public class JangbogoApplication {
 	@Autowired
 	private StockService stockService;
 
+	@Autowired
+	private CategoryService categoryService;
+
 	@PostConstruct
 	public void initMarket() {
+		Category category = new Category("음료");
+		categoryService.enrollCategory(category);
 		Market market = new Market("복마트", 35.96262, 126.98775, "7:00 ~ 22:00", "063-833-4999", "전라북도 익산시 부송동 1080");
 		marketService.enrollMarket(market);
 		marketService.enrollMarket(new Market("자유마트", 35.96135, 126.98487, "8:00 ~ 22:00", "063-835-4333", "전라북도 익산시 어양동 158-10"));
 		marketService.enrollMarket(new Market("엑스마트", 35.95808, 126.98760, "9:00 ~ 23:00", "063-836-0365", "전라북도 익산시 부송동 781"));
-		Product product = new Product("코카콜라");
+		Product product = new Product("콜라", category);
 		productService.enrollProduct(product);
-		productService.enrollProduct(new Product("펩시콜라"));
-		stockService.enrollStock(new Stock(3400, 2, market, product));
-
+		stockService.enrollStock(new Stock(3400, 100, market, product));
+		product = new Product("사이다", category);
+		productService.enrollProduct(product);
+		stockService.enrollStock(new Stock(2800, 50, market, product));
 	}
 
 	@Bean

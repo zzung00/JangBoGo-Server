@@ -45,6 +45,7 @@ public class Product {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<CartItem> cartItems = new ArrayList<>();
 
+    @NonNull
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
