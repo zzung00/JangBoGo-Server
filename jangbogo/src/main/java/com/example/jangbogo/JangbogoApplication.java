@@ -35,18 +35,47 @@ public class JangbogoApplication {
 
 	@PostConstruct
 	public void initMarket() {
-		Category category = new Category("음료");
-		categoryService.enrollCategory(category);
-		Market market = new Market("복마트", 35.96262, 126.98775, "7:00 ~ 22:00", "063-833-4999", "전라북도 익산시 부송동 1080");
-		marketService.enrollMarket(market);
-		marketService.enrollMarket(new Market("자유마트", 35.96135, 126.98487, "8:00 ~ 22:00", "063-835-4333", "전라북도 익산시 어양동 158-10"));
-		marketService.enrollMarket(new Market("엑스마트", 35.95808, 126.98760, "9:00 ~ 23:00", "063-836-0365", "전라북도 익산시 부송동 781"));
-		Product product = new Product("콜라", category);
-		productService.enrollProduct(product);
-		stockService.enrollStock(new Stock(3400, 100, market, product));
-		product = new Product("사이다", category);
-		productService.enrollProduct(product);
-		stockService.enrollStock(new Stock(2800, 50, market, product));
+		Category categoryDrink = new Category("음료");
+		Category categoryVegi = new Category("채소");
+		categoryService.enrollCategory(categoryDrink);
+		categoryService.enrollCategory(categoryVegi);
+
+		Market market1 = new Market("복마트", 35.96262, 126.98775, "7:00 ~ 22:00", "063-833-4999", "전라북도 익산시 부송동 1080");
+		Market market2 = new Market("자유마트", 35.96135, 126.98487, "8:00 ~ 22:00", "063-835-4333", "전라북도 익산시 어양동 158-10");
+		Market market3 = new Market("엑스마트", 35.95808, 126.98760, "9:00 ~ 23:00", "063-836-0365", "전라북도 익산시 부송동 781");
+		marketService.enrollMarket(market1);
+		marketService.enrollMarket(market2);
+		marketService.enrollMarket(market3);
+
+		Product product_market1 = new Product("코카콜라", categoryDrink);
+		productService.enrollProduct(product_market1);
+		stockService.enrollStock(new Stock(3400, 10, market1, product_market1));
+		product_market1 = new Product("사이다", categoryDrink);
+		productService.enrollProduct(product_market1);
+		stockService.enrollStock(new Stock(2800, 15, market1, product_market1));
+		product_market1 = new Product("당근", categoryVegi);
+		productService.enrollProduct(product_market1);
+		stockService.enrollStock(new Stock(1500, 20, market1, product_market1));
+
+		Product product_market2 = new Product("오렌지주스", categoryDrink);
+		productService.enrollProduct(product_market2);
+		stockService.enrollStock(new Stock(2600, 25, market2, product_market2));
+		product_market2 = new Product("양배추", categoryVegi);
+		productService.enrollProduct(product_market2);
+		stockService.enrollStock(new Stock(1800, 15, market2, product_market2));
+		product_market2 = new Product("펩시콜라", categoryDrink);
+		productService.enrollProduct(product_market2);
+		stockService.enrollStock(new Stock(2000, 20, market2, product_market2));
+
+		Product product_market3 = new Product("코카콜라", categoryDrink);
+		productService.enrollProduct(product_market3);
+		stockService.enrollStock(new Stock(3300, 25, market3, product_market3));
+		product_market3 = new Product("상추", categoryVegi);
+		productService.enrollProduct(product_market3);
+		stockService.enrollStock(new Stock(1000, 23, market3, product_market3));
+		product_market3 = new Product("브로콜리", categoryVegi);
+		productService.enrollProduct(product_market3);
+		stockService.enrollStock(new Stock(1200, 20, market3, product_market3));
 	}
 
 	@Bean
