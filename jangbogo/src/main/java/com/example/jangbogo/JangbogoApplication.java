@@ -50,6 +50,7 @@ public class JangbogoApplication {
 		Product product_market1 = new Product("코카콜라", categoryDrink);
 		productService.enrollProduct(product_market1);
 		stockService.enrollStock(new Stock(3400, 10, market1, product_market1));
+		stockService.enrollStock(new Stock(3300, 25, market3, product_market1));
 		product_market1 = new Product("사이다", categoryDrink);
 		productService.enrollProduct(product_market1);
 		stockService.enrollStock(new Stock(2800, 15, market1, product_market1));
@@ -67,10 +68,7 @@ public class JangbogoApplication {
 		productService.enrollProduct(product_market2);
 		stockService.enrollStock(new Stock(2000, 20, market2, product_market2));
 
-		Product product_market3 = new Product("코카콜라", categoryDrink);
-		productService.enrollProduct(product_market3);
-		stockService.enrollStock(new Stock(3300, 25, market3, product_market3));
-		product_market3 = new Product("상추", categoryVegi);
+		Product product_market3 = new Product("상추", categoryVegi);
 		productService.enrollProduct(product_market3);
 		stockService.enrollStock(new Stock(1000, 23, market3, product_market3));
 		product_market3 = new Product("브로콜리", categoryVegi);
