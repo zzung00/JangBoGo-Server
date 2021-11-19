@@ -1,5 +1,9 @@
 package com.example.jangbogo.dto;
 
+import java.util.List;
+
+import com.example.jangbogo.domain.Orders;
+
 import org.springframework.stereotype.Component;
 
 import lombok.AllArgsConstructor;

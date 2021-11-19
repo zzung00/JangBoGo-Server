@@ -15,5 +15,6 @@ public class OrdersDTO {
     private Date date;
     private int total;
     private String status;
+    private MarketDTO market;
     private List<OrderItemDTO> orderItemDTOs;
 }

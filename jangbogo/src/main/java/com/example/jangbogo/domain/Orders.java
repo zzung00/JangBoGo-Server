@@ -32,7 +32,9 @@ public class Orders {
 
     private int total;
 
-    private String status;
+    @ManyToOne
+    @JoinColumn(name = "market_id")
+    private Market market;
 
     @OneToMany(mappedBy = "orders", cascade = CascadeType.ALL)
     private List<OrderItem> orderItems = new ArrayList<>();

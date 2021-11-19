@@ -43,6 +43,9 @@ public class Market {
 
     private String address;
 
+    @OneToMany(mappedBy = "market", cascade = CascadeType.ALL)
+    private List<Orders> orders = new ArrayList<>();
+
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @OneToMany(mappedBy = "market", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Stock> stocks = new ArrayList<>();
@@ -55,5 +58,8 @@ public class Market {
         this.tel = tel;
         this.address = address;
     }
+
+    @OneToMany(mappedBy = "market", cascade = CascadeType.ALL)
+    private List<Cart> carts = new ArrayList<>();
 
 }
