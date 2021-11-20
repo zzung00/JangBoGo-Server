@@ -1,5 +1,6 @@
 package com.example.jangbogo.controller;
 
+import com.example.jangbogo.dto.OrderItemDTO;
 import com.example.jangbogo.dto.OrdersDTO;
 import com.example.jangbogo.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,11 @@ public class OrderController {
     @RequestMapping(value = "/all", method = RequestMethod.GET)
     public @ResponseBody List<OrdersDTO> getAllOrders() {
         return orderService.loadAllOrder();
+    }
+
+    @RequestMapping(value = "/orderItem", method = RequestMethod.GET)
+    public @ResponseBody List<OrderItemDTO> loadOrderItem(Integer orderId) {
+        return orderService.loadOrderItem(orderId);
     }
 
 }
