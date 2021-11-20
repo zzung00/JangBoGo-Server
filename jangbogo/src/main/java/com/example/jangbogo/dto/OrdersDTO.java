@@ -1,6 +1,7 @@
 package com.example.jangbogo.dto;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -12,9 +13,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class OrdersDTO {
     private Integer id;
-    private Date date;
+    private LocalDate date;
     private int total;
-    private String status;
     private MarketDTO market;
     private List<OrderItemDTO> orderItemDTOs;
 }

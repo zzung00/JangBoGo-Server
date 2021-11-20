@@ -36,7 +36,9 @@ public class MarketController {
 
     @RequestMapping(value = "/purchase", method = RequestMethod.POST)
     public @ResponseBody OrdersDTO purchase(@RequestBody CartDTO cart) {
-        return orderService.purchase(cart);
+        OrdersDTO ordersDTO= orderService.purchase(cart);
+        System.out.println(ordersDTO);
+        return ordersDTO;
     }
 
 }

@@ -40,6 +40,12 @@ public class OrderService {
         return ordersDTO;
     }
 
+    public List<OrdersDTO> loadAllOrder() {
+        List<Orders> orders = ordersRepository.findAll();
+        List<OrdersDTO> ordersDTO = orders.stream().map(o -> modelMapper.map(o, OrdersDTO.class)).collect(Collectors.toList());
+        return ordersDTO;
+    }
+
     public List<OrderItemDTO> loadOrderItem(Integer orderId) {
         List<OrderItemDTO> response;
         List<OrderItem> orderItems = orderItemRepository.findByOrdersId(orderId);
@@ -57,6 +63,7 @@ public class OrderService {
         
         for (CartItemDTO c : cart.getCartItems()) {
             OrderItem orderItem = new OrderItem();
+            orderItem.setOrders(orders);
             orderItem.setCount(c.getCount());
             orderItem.setPrice(c.getPrice());
             orderItem.setProduct(modelMapper.map(c.getProduct(), Product.class));
