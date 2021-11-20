@@ -1,5 +1,6 @@
 package com.example.jangbogo.domain;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
@@ -28,7 +29,7 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Date date;
+    private LocalDate date;
 
     private int total;
 
