@@ -22,7 +22,7 @@ public class UserController {
         return userService.signIn(username, password);
     }
 
-    @RequestMapping(value = "/signUp", method = RequestMethod.POST)
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
     public @ResponseBody UserDTO signUp(@RequestBody HashMap<String, Object> request) {
         String username = (String) request.get("username");
         String password = (String) request.get("password");

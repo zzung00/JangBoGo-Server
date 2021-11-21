@@ -18,6 +18,7 @@ public class UserService {
     private ModelMapper modelMapper;
 
     public UserDTO signUp(String username, String password) {
+        System.out.println(username + password);
         Optional<User> userOptional = userRepository.findByUsername(username);
         if (!userOptional.isPresent()) {
             User user = new User();
